@@ -1,14 +1,25 @@
-<div class="container">
-  <h1> Alarms </h1>
 
-  <% @alarms.each do |alarm| %>
-  <div class="row">
-    <div class="col-sm-4"><%= alarm.name %></div>  
-    <div class="col-sm-3"><%= alarm.time %></div>
-    <div class="col-sm-3"></div> 
-    <div class="col-sm-1"><%= alarm.snooze %></div>
-  </div>
-  <% end %>
+<p id="notice"><%= notice %></p>
 
-  <%= link_to "New Alarm", new_alarm_path %>
-</div>
+<p>
+  <strong>Name:</strong>
+  <%= @alarm.name %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @alarm.time %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @alarm.days %>
+</p>
+
+<p>
+  <strong>Snooze:</strong>
+  <%= @alarm.snooze %>
+</p>
+
+<%= link_to 'Edit', edit_alarm_path(@alarm) %> |
+<%= link_to 'Back', alarms_path %>

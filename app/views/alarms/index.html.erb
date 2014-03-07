@@ -1,0 +1,33 @@
+<h1>Listing alarms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Time</th>
+      <th>Days</th>
+      <th>Snooze</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alarms.each do |alarm| %>
+      <tr>
+        <td><%= alarm.name %></td>
+        <td><%= alarm.time %></td>
+        <td><%= alarm.days %></td>
+        <td><%= alarm.snooze %></td>
+        <td><%= link_to 'Show', alarm %></td>
+        <td><%= link_to 'Edit', edit_alarm_path(alarm) %></td>
+        <td><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alarm', new_alarm_path %>
