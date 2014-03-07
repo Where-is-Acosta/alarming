@@ -1,0 +1,14 @@
+<div class="container">
+  <h1> Alarms </h1>
+
+  <% @alarms.each do |alarm| %>
+  <div class="row">
+    <div class="col-sm-4"><%= alarm.name %></div>  
+    <div class="col-sm-3"><%= alarm.time %></div>
+    <div class="col-sm-3"></div> 
+    <div class="col-sm-1"><%= alarm.snooze %></div>
+  </div>
+  <% end %>
+
+  <%= link_to "New Alarm", new_alarm_path %>
+</div>

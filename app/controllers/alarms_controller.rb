@@ -1,14 +1,17 @@
-class AlarmController < ApplicationController
+class AlarmsController < ApplicationController
 
   def new 
-    
+    @alarm = Alarm.new
   end
 
   def create
-    @alarm = Alarm.new(new_alarm_params)
-    
+    if @alarm = Alarm.create(new_alarm_params)
+       redirect_to root_path
+    else
+      render "new"
+    end
   end
-
+=begin
   def update
     if @alarm.update(edit_group_params)
       redirect_to alarm_path, notice: "Alarm is set"
@@ -16,18 +19,15 @@ class AlarmController < ApplicationController
       render "edit"
     end
   end
-
+=end
   def show
-    @alarm = Alarms.all
+    @alarms = Alarm.all
   end
 
 
   private
   
   def new_alarm_params
-    params.permit(:name, :time, :days, :snooze)
-  end
-  def edit_alarm_params
     params.permit(:name, :time, :days, :snooze)
   end
 end
