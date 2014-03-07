@@ -1,12 +1,12 @@
 class AlarmController < ApplicationController
 
   def new 
-
+    
   end
 
   def create
     @alarm = Alarm.new(new_alarm_params)
-
+    
   end
 
   def update
@@ -18,7 +18,7 @@ class AlarmController < ApplicationController
   end
 
   def show
-
+    @alarm = Alarms.all
   end
 
 

@@ -1,0 +1,17 @@
+<%= form_for @alarm do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %> 
+
+<%= f.label :time %>
+<%= f.time_field :time %>
+
+<%= f.label :days %>
+<%= f.text_field :days %>
+
+<%= f.label :snooze %>
+<%= f.check_box :snooze %>
+
+<%= f.submit %>
+
+<% end %>
