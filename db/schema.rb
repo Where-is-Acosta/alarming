@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307184836) do
+ActiveRecord::Schema.define(version: 20140307213201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "alarms", force: true do |t|
-    t.string   "name",       default: "Alarm"
+    t.text     "name"
     t.time     "time"
-    t.string   "days",                         array: true
-    t.boolean  "snooze",     default: false
-    t.string   "sound"
+    t.text     "days"
+    t.boolean  "snooze"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

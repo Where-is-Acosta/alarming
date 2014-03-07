@@ -1,0 +1,25 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @alarm.name %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @alarm.time %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @alarm.days %>
+</p>
+
+<p>
+  <strong>Snooze:</strong>
+  <%= @alarm.snooze %>
+</p>
+
+<%= link_to 'Edit', edit_alarm_path(@alarm) %> |
+<%= link_to 'Back', alarms_path %>
