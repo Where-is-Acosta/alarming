@@ -23,14 +23,19 @@ html, body {
   width: 10%;
   display: inline-block;
 }
-.add {
+.addrow {
   text-align: center;
+  margin: 3% auto;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 .DayRow {
   width: 70%;
   float: none;
   margin: 0 auto;
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
 
 @media (max-width: 600px) {
@@ -42,5 +47,35 @@ html, body {
   }
 }
 
+.button {
+ outline: none;
+ font-weight: bold;
+ color: #BDC3C7;
+ padding: 13px 20px;
+ font-size: 22px;
+ line-height: 1.227;
+ border-radius: 6px;
+ background-color: transparent;
+ border: 2px solid #BDC3C7;
+ -webkit-font-smoothing: subpixel-antialiased;
+ -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+ transition: border .25s linear, color .25s linear, background-color .25s linear;
+}
+.add {
+  background-color: #34495e;
+  font-size: 28px;
+  border: transparent;
+  color: #ffffff;
+}
+.button:hover {
+  color: #27AE60;
+}
+.button:active,
+.button.active {
+ border-color: #27AE60
+}
+.selected {
+  border-color: #27AE60
+}
 
 
