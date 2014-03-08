@@ -10,6 +10,7 @@ class AlarmsController < ApplicationController
   # GET /alarms/1
   # GET /alarms/1.json
   def show
+
   end
 
   # GET /alarms/new
@@ -61,6 +62,10 @@ class AlarmsController < ApplicationController
     end
   end
 
+  def wake_up(time)
+    @time = time
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alarm
@@ -68,7 +73,8 @@ class AlarmsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    
     def alarm_params
-      params.require(:alarm).permit(:name, :time, :days, :snooze)
+      params.require(:alarm).permit(:name, :time, :snooze, days: [])
     end
 end

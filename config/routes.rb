@@ -31,7 +31,7 @@ Alarming::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-  resources :alarms
+  resources :alarms, :only => [:index, :new, :show, :edit, :create, :update, :destroy, :wake_up]
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
