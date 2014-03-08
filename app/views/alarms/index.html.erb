@@ -26,6 +26,44 @@
 
 <br>
 
+
+<%= form_for(@new, remote: true) do |f| %>
+  
+  <% if @new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new.errors.count, "error") %> prohibited this alarm from being saved:</h2>
+
+      <ul>
+      <% @new.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.time_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :days %><br>
+    <%= f.collection_check_boxes :days, list_days, :first, :second%>
+  </div>
+  <div class="field">
+    <%= f.label :snooze %><br>
+    <%= f.check_box :snooze %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
 <%= link_to 'New Alarm', new_alarm_path %>
 
 </container>

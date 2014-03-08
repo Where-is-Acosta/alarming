@@ -1,4 +1,14 @@
 namespace :alarmer do
+  desc "Set todays alarms"
+  task :set_alarms => :environment do
+    Alarm.all.each do |alarm|
+      alarm.days.each do |day|
+        if day == DateTime.now.strftime("%A")
+          alarm.update_attributes(:set => true)
+        end
+      end
+    end
+  end
   desc "Deliver reminders to one day old users with no paid groups"
   task :wake_up => :environment do
     loop {
@@ -7,7 +17,7 @@ namespace :alarmer do
         if alarm.alarmed == false
       #puts alarm.name " is going off this hour."
           WakeUpMailer.get_up(alarm).deliver
-          alarm.update_attributes(:alarmed => true)
+          alarm.update_attributes(:set => false)
         end
       end
     end

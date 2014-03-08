@@ -4,8 +4,9 @@ class AlarmsController < ApplicationController
   # GET /alarms
   # GET /alarms.json
   def index
-    @alarms = Alarm
+    @alarms = Alarm.all
     @next = Alarm.next.order("alarms.time asc").first(1)
+    @new = Alarm.new
   end
 
   # GET /alarms/1
@@ -26,10 +27,10 @@ class AlarmsController < ApplicationController
   # POST /alarms
   # POST /alarms.json
   def create
-    @alarm = Alarm.new(alarm_params)
+    @new = Alarm.new(alarm_params)
 
     respond_to do |format|
-      if @alarm.save
+      if @new.save
         format.html { redirect_to @alarm, notice: 'Alarm was successfully created.' }
         format.json { render action: 'show', status: :created, location: @alarm }
       else
