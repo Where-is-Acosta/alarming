@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308010856) do
+ActiveRecord::Schema.define(version: 20140308160218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,13 @@ ActiveRecord::Schema.define(version: 20140308010856) do
   create_table "alarms", force: true do |t|
     t.string   "name"
     t.time     "time"
-    t.string   "days",       array: true
+    t.string   "days",                       array: true
     t.boolean  "snooze"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "hour"
     t.integer  "minute"
+    t.boolean  "alarmed",    default: false
   end
 
 end

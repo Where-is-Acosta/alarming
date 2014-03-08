@@ -12,7 +12,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'mixcloud'
-gem 'delayed_job'
 gem 'render_anywhere'
 
 
