@@ -1,29 +1,24 @@
-<h1>Listing alarms</h1>
+<container class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Time</th>
-      <th>Days</th>
-      <th>Snooze</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
+  <div class="col-md-12 title animated fadeInUp">
+    <h3>Alarming,</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12 WakeMeUp">
+    <h4>wake me up at</h4>
+    </div>
+  </div>
   <tbody>
     <% @alarms.each do |alarm| %>
-      <tr>
-        <td><%= alarm.name %></td>
-        <td><%= alarm.time %></td>
-        <td><%= alarm.days %></td>
-        <td><%= alarm.snooze %></td>
-        <td><%= link_to 'Show', alarm %></td>
-        <td><%= link_to 'Edit', edit_alarm_path(alarm) %></td>
-        <td><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+    <p><%= alarm.name %></p>
+    <p><%= alarm.time %></p>
+    <p><%= alarm.days %></p>
+    <p><%= alarm.snooze %></p>
+    <p><%= link_to 'Show', alarm %></p>
+    <p><%= link_to 'Edit', edit_alarm_path(alarm) %></p>
+    <p><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
     <% end %>
   </tbody>
 </table>
@@ -31,3 +26,5 @@
 <br>
 
 <%= link_to 'New Alarm', new_alarm_path %>
+
+</container>
