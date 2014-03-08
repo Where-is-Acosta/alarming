@@ -4,7 +4,8 @@ class AlarmsController < ApplicationController
   # GET /alarms
   # GET /alarms.json
   def index
-    @alarms = Alarm.all
+    @alarms = Alarm
+    @next = Alarm.next.order("alarms.time asc").first(1)
   end
 
   # GET /alarms/1

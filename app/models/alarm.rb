@@ -4,6 +4,10 @@ class Alarm < ActiveRecord::Base
   before_validation :hour, :minute, on: :create
   validates :name, :days, :time, presence: true
 
+  # For showing the alarms
+  # scope :next, -> { where(hour: DateTime.now.strftime("%A"))}
+  scope :next, ->  { where("hour <= ?", DateTime.now.hour).where.not(alarmed: true) }
+  # For alarming people
   scope :this_hour, -> { where(hour: Time.now.hour)}
 
 

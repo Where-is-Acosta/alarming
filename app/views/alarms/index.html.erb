@@ -9,16 +9,17 @@
     </div>
   </div>
   <tbody>
-    <% @alarms.each do |alarm| %>
 
-    <p><%= alarm.name %></p>
-    <p><%= alarm.time %></p>
-    <p><%= alarm.days %></p>
-    <p><%= alarm.snooze %></p>
-    <p><%= link_to 'Show', alarm %></p>
-    <p><%= link_to 'Edit', edit_alarm_path(alarm) %></p>
-    <p><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-
+    <% @next.each do |alarm| %>
+      <tr>
+        <p><%= alarm.name %></p>
+        <p><%= alarm.time %></p>
+        <p><%= alarm.days %></p>
+        <p><%= alarm.snooze %></p>
+        <p><%= link_to 'Show', alarm %></p>
+        <p><%= link_to 'Edit', edit_alarm_path(alarm) %></p>
+        <p><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </tr>
     <% end %>
   </tbody>
 </table>
