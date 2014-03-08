@@ -1,15 +1,15 @@
 class Alarm < ActiveRecord::Base
 
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
-  before_validation :hour, :minute, on: :create
+  before_validation :hour, :minute, :set, on: :create
   validates :name, :days, :time, presence: true
 
-  # For showing the alarms
-  # scope :next, -> { where(hour: DateTime.now.strftime("%A"))}
-  scope :next, ->  { where("hour <= ?", DateTime.now.hour).where.not(alarmed: true) }
+  
   # For alarming people
-  scope :this_hour, -> { where(hour: Time.now.hour)}
+  scope :set, -> { where(set: true)}
+  scope :this_hour, -> { set.where(hour: Time.now.hour)}
 
+  scope :next, ->  { set.where("hour <= ?", DateTime.now.hour) }
 
   def alarm_hour_now
     self[:time].hour
@@ -20,6 +20,15 @@ class Alarm < ActiveRecord::Base
   end
 
   protected
+
+  def set
+    days.each do |day|
+      if day == DateTime.now.strftime("%A")
+        self[:set] = true
+      end
+    end
+  end
+
   def minute
     self.minute = self.time.min
   end
