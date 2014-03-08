@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_area :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :time %><br>
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :days %><br>
-    <%= f.text_area :days %>
+    <%= f.collection_check_boxes :days, list_days, :first, :second%>
   </div>
   <div class="field">
     <%= f.label :snooze %><br>
