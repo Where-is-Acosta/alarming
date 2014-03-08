@@ -1,22 +1,46 @@
+html, body {
+  overflow-x: hidden;
+}
+
 .logo {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-left: 0.75%;
+}
+.title {
   text-align: center;
 }
 .WakeMeUp {
   text-align: center;
+  font-weight: normal;
 }
 .Time {
   text-align: center;
 }
 .day {
   text-align: center;
+  width: 10%;
+  display: inline-block;
 }
 .add {
   text-align: center;
 }
 .DayRow {
-   float: none;
-    margin: 0 auto;
-    text-align: center;
+  width: 70%;
+  float: none;
+  margin: 0 auto;
+  text-align: center;
 }
+
+@media (max-width: 600px) {
+  .DayRow {
+    width: 100%;
+  }
+  .day {
+    width: 13%;
+  }
+}
+
 
 
