@@ -34,8 +34,7 @@ html, body {
   float: none;
   margin: 0 auto;
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 
@@ -47,7 +46,9 @@ html, body {
  font-size: 22px;
  line-height: 1.227;
  border-radius: 6px;
- width: 13%;
+ width: 65px;
+ margin-top: 5px;
+ margin-bottom: 5px;
  background-color: transparent;
  border: 2px solid #BDC3C7;
  -webkit-font-smoothing: subpixel-antialiased;
@@ -57,6 +58,8 @@ html, body {
 .add {
   background-color: #34495e;
   font-size: 28px;
+  width: 65px;
+  height: 65px;
 }
 .button:hover {
   color: #27AE60;
@@ -70,6 +73,10 @@ html, body {
 }
 
 @media (max-width: 600px) {
+  .logo {
+    height: 20%;
+    
+  }
   .DayRow {
     width: 100%;
   }
@@ -78,6 +85,10 @@ html, body {
   }
   .button {
     width: 18%;
+  }
+  .add {
+    width: 65px;
+    height: 65px;
   }
 }
 
