@@ -1,6 +1,6 @@
 class Alarm < ActiveRecord::Base
 
-  DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
+  DAYS = %w[Mo Tu We Th Fr Sa Su]
   before_validation :hour, :minute, :set, on: :create
   validates :name, :days, :time, presence: true
 

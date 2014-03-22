@@ -5,21 +5,20 @@
   </div>
   <div class="row">
     <div class="col-md-12 WakeMeUp">
-    <h4>wake me up at</h4>
+      <h4>wake me up at</h4>
     </div>
   </div>
   <tbody>
 
     <% @next.each do |alarm| %>
-      <tr>
-        <p><%= alarm.name %></p>
-        <p><%= alarm.time %></p>
-        <p><%= alarm.days %></p>
-        <p><%= alarm.snooze %></p>
-        <p><%= link_to 'Show', alarm %></p>
-        <p><%= link_to 'Edit', edit_alarm_path(alarm) %></p>
-        <p><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      </tr>
+    <tr>
+      <p><%= alarm.name %></p>
+      <p><%= alarm.time %></p>
+      <p><%= alarm.days %></p>
+      <p><%= link_to 'Show', alarm %></p>
+      <p><%= link_to 'Edit', edit_alarm_path(alarm) %></p>
+      <p><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </tr>
     <% end %>
   </tbody>
 </table>
@@ -28,38 +27,37 @@
 
 
 <%= form_for(@new, remote: true) do |f| %>
-  
-  <% if @new.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new.errors.count, "error") %> prohibited this alarm from being saved:</h2>
 
-      <ul>
-      <% @new.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %> 
+<% if @new.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@new.errors.count, "error") %> prohibited this alarm from being saved:</h2>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br>
-    <%= f.time_select :time %>
-  </div>
-  <div class="field">
-    <%= f.label :days %><br>
-    <%= f.collection_check_boxes :days, list_days, :first, :second%>
-  </div>
-  <div class="field">
-    <%= f.label :snooze %><br>
-    <%= f.check_box :snooze %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <ul>
+    <% @new.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %> 
+
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.time_select :time %>
+</div>
+<div class="field">
+  <%= f.label :days %><br>
+  <%= f.collection_check_boxes :days, list_days, :first, :second%>
+</div>
+<div class="field">
+  <%= f.label :snooze %><br>
+  <%= f.check_box :snooze %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
 
 
