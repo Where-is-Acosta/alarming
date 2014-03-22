@@ -14,14 +14,18 @@ namespace :alarmer do
     loop {
     Alarm.this_hour.find_each do |alarm|
       if alarm.minute = Time.now.min
-        if alarm.alarmed == false
+        if alarm.set == true
       #puts alarm.name " is going off this hour."
           WakeUpMailer.get_up(alarm).deliver
+          ApplicationController.new.render_to_string(
+            :template => 'alarms/show',
+            :locals => { :@alarm => alarm }
+          )
           alarm.update_attributes(:set => false)
         end
       end
     end
-    puts Time.now.min
+    puts Time.now + Time.now.min
     sleep(30.seconds)
   }
   end

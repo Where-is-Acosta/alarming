@@ -27,10 +27,10 @@ class AlarmsController < ApplicationController
   # POST /alarms
   # POST /alarms.json
   def create
-    @new = Alarm.new(alarm_params)
+    @alarm = Alarm.new(alarm_params)
 
     respond_to do |format|
-      if @new.save
+      if @alarm.save
         format.html { redirect_to @alarm, notice: 'Alarm was successfully created.' }
         format.json { render action: 'show', status: :created, location: @alarm }
       else

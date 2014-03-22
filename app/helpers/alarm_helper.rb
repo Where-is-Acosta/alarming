@@ -1,8 +1,8 @@
 module AlarmHelper
 
   def list_days
-    Alarm::DAYS.map do |day|
-      [day]
+    Alarm::DAYS.map do |d|
+      [d, ]
     end
   end
 end

@@ -1,7 +1,7 @@
 class Alarm < ActiveRecord::Base
 
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
-  before_validation :hour, :minute, :set, on: :create
+  before_validation :hour, :minute, :set_alarm, on: :create
   validates :name, :days, :time, presence: true
 
   
@@ -21,7 +21,7 @@ class Alarm < ActiveRecord::Base
 
   protected
 
-  def set
+  def set_alarm
     days.each do |day|
       if day == DateTime.now.strftime("%A")
         self[:set] = true
