@@ -1,0 +1,41 @@
+= form_for(@alarm) do |f|
+  - if @alarm.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@alarm.errors.count, "error")
+        prohibited this alarm from being saved:
+      %ul
+        - @alarm.errors.full_messages.each do |msg|
+          %li= msg
+  .col-sm-12.Time
+    .row
+      .field
+        = f.label :name
+        = f.text_field :name
+  .col-sm-12.Time
+    .row
+      .field
+        = f.label :time
+        = f.time_select :time
+  .col-sm-12
+    .DayRow
+      = f.collection_check_boxes :days, list_days, :first, :second, :class => "button"
+  /
+    <button class="button" id="monday">M</button>
+    <button class="button" id="monday">T</button>
+    <button class="button" id="monday">W</button>
+    <button class="button" id="monday">T</button>
+    <button class="button" id="monday">F</button>
+    <button class="button" id="monday">S</button>
+    <button class="button" id="monday">S</button>
+    
+    </div>
+  .col-sm-12.Time
+    .row  
+      .field
+        = f.label :snooze
+        = f.check_box :snooze
+  .col-sm-12.Time
+    .row  
+      .actions
+        = f.submit 'Add', :class => 'button'
