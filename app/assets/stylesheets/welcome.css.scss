@@ -38,7 +38,7 @@ html, body {
 }
 
 
-.button {
+collection_check_boxes.button {
  outline: none;
  font-weight: bold;
  color: #BDC3C7;
@@ -92,4 +92,12 @@ html, body {
   }
 }
 
+#alarm_days_su {
+  margin:4px;
+  background-color:#EFEFEF;
+  border-radius:4px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+  float:left;
+}
 
