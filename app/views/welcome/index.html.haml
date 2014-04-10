@@ -52,3 +52,12 @@
         .col-md-12.addrow
           %button.button.add
             +
+      .row
+        .col-xs-12
+          = form_tag session_path do
+            = form_tag "Email"
+            = text_field_tag :email
+            = form_tag "password"
+            = text_field_tag :password
+            = submit_tag "login"
+= link_to destroy_sessions_path

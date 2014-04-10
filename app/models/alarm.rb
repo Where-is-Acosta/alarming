@@ -1,10 +1,10 @@
 class Alarm < ActiveRecord::Base
+  has_one :user
 
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
   before_validation :hour, :minute, :set_alarm, on: :create
   validates :name, :days, :time, presence: true
 
-  
   # For alarming people
   scope :set, -> { where(set: true)}
   scope :this_hour, -> { set.where(hour: Time.now.hour)}

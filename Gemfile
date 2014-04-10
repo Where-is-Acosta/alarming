@@ -15,6 +15,7 @@ gem 'haml-rails'
 gem 'mixcloud'
 gem 'render_anywhere'
 
+gem 'bcrypt-ruby'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,6 +1,5 @@
 class AlarmsController < ApplicationController
-  before_action :set_alarm, only: [:show, :edit, :update, :destroy]
-
+  before_action :requre_user, :set_alarm, only: [:show, :edit, :update, :destroy]
   # GET /alarms
   # GET /alarms.json
   def index
@@ -8,27 +7,22 @@ class AlarmsController < ApplicationController
     @next = Alarm.next.order("alarms.time asc").first(1)
     @new = Alarm.new
   end
-
   # GET /alarms/1
   # GET /alarms/1.json
   def show
 
   end
-
   # GET /alarms/new
   def new
     @alarm = Alarm.new
   end
-
   # GET /alarms/1/edit
   def edit
   end
-
   # POST /alarms
   # POST /alarms.json
   def create
     @alarm = Alarm.new(alarm_params)
-
     respond_to do |format|
       if @alarm.save
         format.html { redirect_to @alarm, notice: 'Alarm was successfully created.' }
@@ -39,7 +33,6 @@ class AlarmsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /alarms/1
   # PATCH/PUT /alarms/1.json
   def update
@@ -53,7 +46,6 @@ class AlarmsController < ApplicationController
       end
     end
   end
-
   # DELETE /alarms/1
   # DELETE /alarms/1.json
   def destroy
@@ -63,19 +55,15 @@ class AlarmsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   def wake_up(time)
     @time = time
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_alarm
       @alarm = Alarm.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
-    
     def alarm_params
       params.require(:alarm).permit(:name, :time, :snooze, days: [])
     end
