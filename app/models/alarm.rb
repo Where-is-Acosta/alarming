@@ -1,5 +1,5 @@
 class Alarm < ActiveRecord::Base
-  has_one :user
+#  belongs_to :user
 
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
   before_validation :hour, :minute, :set_alarm, on: :create

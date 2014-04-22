@@ -1,5 +1,5 @@
 class AlarmsController < ApplicationController
-  before_action :requre_user, :set_alarm, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, :set_user, :set_alarm, only: %i[:show :edit :update :destroy :index]
   # GET /alarms
   # GET /alarms.json
   def index
@@ -10,7 +10,7 @@ class AlarmsController < ApplicationController
   # GET /alarms/1
   # GET /alarms/1.json
   def show
-
+    
   end
   # GET /alarms/new
   def new
@@ -25,7 +25,7 @@ class AlarmsController < ApplicationController
     @alarm = Alarm.new(alarm_params)
     respond_to do |format|
       if @alarm.save
-        format.html { redirect_to @alarm, notice: 'Alarm was successfully created.' }
+        format.html { redirect_to user_alarms_path, notice: 'Alarm was successfully created.' }
         format.json { render action: 'show', status: :created, location: @alarm }
       else
         format.html { render action: 'new' }
@@ -38,7 +38,7 @@ class AlarmsController < ApplicationController
   def update
     respond_to do |format|
       if @alarm.update(alarm_params)
-        format.html { redirect_to @alarm, notice: 'Alarm was successfully updated.' }
+        format.html { redirect_to user_alarms_url, notice: 'Alarm was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -51,7 +51,7 @@ class AlarmsController < ApplicationController
   def destroy
     @alarm.destroy
     respond_to do |format|
-      format.html { redirect_to alarms_url }
+      format.html { redirect_to user_alarms_url }
       format.json { head :no_content }
     end
   end
@@ -59,12 +59,16 @@ class AlarmsController < ApplicationController
     @time = time
   end
   private
-    # Use callbacks to share common setup or constraints between actions.
+=begin    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+       @user = current_user
+    end
+=end    
     def set_alarm
       @alarm = Alarm.find(params[:id])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def alarm_params
-      params.require(:alarm).permit(:name, :time, :snooze, days: [])
+      params.require(:alarm).permit(:name, :user, :time, :snooze, days: [])
     end
 end

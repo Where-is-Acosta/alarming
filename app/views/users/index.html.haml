@@ -4,7 +4,6 @@
   %tr
     %th Name
     %th Email
-    %th Password digest
     %th
     %th
     %th
@@ -13,11 +12,11 @@
     %tr
       %td= user.name
       %td= user.email
-      %td= user.password_digest
       %td= link_to 'Show', user
       %td= link_to 'Edit', edit_user_path(user)
       %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
+= link_to 'log out', session_path, method: :destroy
 = link_to 'New User', new_user_path

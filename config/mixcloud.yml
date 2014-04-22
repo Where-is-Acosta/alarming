@@ -1,0 +1,12 @@
+production:
+  client: "pJZhwjWzYQdxeBjDqp"
+  secret: "a2CPW9AEessrkpugDjBy8exKat36bDGC"
+  site: "https://www.mixcloud.com"
+development:
+  client: "pJZhwjWzYQdxeBjDqp"
+  secret: "a2CPW9AEessrkpugDjBy8exKat36bDGC"
+  site: "https://www.mixcloud.com"
+staging:
+  client: "pJZhwjWzYQdxeBjDqp"
+  secret: "a2CPW9AEessrkpugDjBy8exKat36bDGC"
+  site: "https://www.mixcloud.com"

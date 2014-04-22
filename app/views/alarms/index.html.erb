@@ -16,11 +16,11 @@
         <p><%= alarm.time %></p>
         <p><%= alarm.days %></p>
         <p><%= alarm.snooze %></p>
-        <p><%= link_to 'Show', alarm %></p>
-        <p><%= link_to 'Edit', edit_alarm_path(alarm) %></p>
-        <p><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to 'Show', user_alarm_path(@user) %></p>
+        <p><%= link_to 'Edit', edit_user_alarm_path(alarm, @user) %></p>
+        <p><%= link_to 'Destroy', user_alarm, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New', new_alarm_path %>
+<%= link_to 'New', new_user_alarm_path %>

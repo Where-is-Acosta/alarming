@@ -11,7 +11,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'haml-rails'
+gem "rest_client"
 
+gem "oauth2"
+
+gem 'rubocop', require: false
+# depreceted
 gem 'mixcloud'
 gem 'render_anywhere'
 
