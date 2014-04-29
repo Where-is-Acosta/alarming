@@ -18,16 +18,12 @@ class UsersController < ApplicationController
 
   def authorize_mixcloud
     redirect_to "https://www.mixcloud.com/oauth/authorize?client_id=#{MIXCLOUD_CREDENTIALS[:client]}&redirect_uri=#{auth_mixcloud_callback_url}"
+    #client = OAuth2::Client.new(MIXCLOUD_CREDENTIALS[:client], MIXCLOUD_CREDENTIALS[:secret], :site => 'https://www.mixcloud.com')
+    #@redirect = client.auth_code.authorize_url(:redirect_uri => auth_mixcloud_callback_url)
   end
 
   def mixcloud_callback
-    redirect_to "https://www.mixcloud.com/oauth/access_token?client_id=#{MIXCLOUD_CREDENTIALS[:client]}&redirect_uri=#{auth_mixcloud_save_url}&client_secret=#{MIXCLOUD_CREDENTIALS[:secret]}&code=#{params[:code]}"
-  end
-
-  def save_mixcloud_auth_token
-    @user.mixcloud_auth_token = params[:access_token]
-    @user.save
-    render 'show', @user
+    @response = get_auth(params[:code])
   end
 
   def create
