@@ -3,8 +3,8 @@
   %body
     %container.container
       .row
-        .col-md-6.logo
-          %svg#logo.logo{align: "center", height: "50%", viewbox: "0 0 700 350", width: "100%", x: "0px", y: "0px"}
+        .col-xs-6.col-xs-offset-3
+          %svg#logo.logo{align: "center", viewbox: "0 0 675 350", x: "0px", y: "0px"}
             %lineargradient#sky{gradientunits: "userSpaceOnUse", x1: "336.3016", x2: "336.3016", y1: "672.6031", y2: "0"}
               %stop{offset: "0.5136", "stop-color" => "#FCE5C0"}
               %stop{offset: "0.7434", "stop-color" => "#69BECB"}
@@ -26,20 +26,18 @@
       .row
         .col-xs-12
           = form_tag session_path do
-            .row
-              .col-xs-4
-                = label_tag :email
-              .col-xs-8
-                = text_field_tag :email
-            .row
-              .col-xs-4
-                = label_tag :password
-              .col-xs-8
-                = password_field_tag :password
-            .row
-              .col-xs-6
+            .row#gap-sm
+              .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
+                = text_field_tag :email, nil, placeholder: 'email', :autofocus => true
+                .div#hackyborder
+            .row#gap-sm
+              .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
+                = password_field_tag :password, nil, placeholder: 'password'
+                .div#hackyborder
+            .row#gap-sm
+              .col-xs-3.col-xs-offset-2
                 = link_to "signup", new_user_path
-              .col-xs-6
+              .col-xs-4
                 = submit_tag "login"
-
+        .col-xs-3.col-xs-offset-2
           = link_to session_path, method: :destroy
