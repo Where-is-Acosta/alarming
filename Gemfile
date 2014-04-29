@@ -16,9 +16,6 @@ gem "rest_client"
 gem "oauth2"
 
 gem 'rubocop', require: false
-# depreceted
-gem 'mixcloud'
-gem 'render_anywhere'
 
 gem 'bcrypt-ruby'
 

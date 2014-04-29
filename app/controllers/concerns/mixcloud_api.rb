@@ -1,5 +1,6 @@
 =begin
-class AuthorizeMixcloudService
+module MixcloudApi
+  extend ActiveSupport::Concern
 
   MIXCLOUD_CREDENTIALS[:client]
   MIXCLOUD_CREDENTIALS[:secret]
@@ -10,9 +11,7 @@ class AuthorizeMixcloudService
     authenticate!(client)
   end
 
-  def callback!(code)
-    
-    
+  def get_auth_token!(code)
     
   end
 
@@ -27,5 +26,4 @@ class AuthorizeMixcloudService
     @user.save
   end
 
-end
 =end

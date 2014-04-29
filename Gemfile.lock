@@ -72,9 +72,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
-    mixcloud (1.0.0)
-      json (>= 1.6.1)
-      rest-client (>= 1.6.7)
     multi_json (1.9.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -116,10 +113,6 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
-    render_anywhere (0.0.8)
-      rails (>= 3.0.7)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
     rest_client (1.7.3)
       netrc (~> 0.7.7)
     rubocop (0.20.1)
@@ -172,12 +165,10 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   letter_opener
-  mixcloud
   oauth2
   pg
   rails (= 4.0.3)
   rails_12factor
-  render_anywhere
   rest_client
   rubocop
   sass-rails (~> 4.0.0)
