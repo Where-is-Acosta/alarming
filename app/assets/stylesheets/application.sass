@@ -12,6 +12,8 @@
  *= require_tree .
  */
  
+body
+  overflow-x: hidden
 
 input[type=text], input[type=password]
   border: none
@@ -29,6 +31,18 @@ label
   margin: auto 0
   height: 60px
 
+input[type=submit]
+  width: 100%
+  background-color: #F5A623
+  opacity: 0.8
+  border: none
+  font-size: 24px
+  height: 45px
+  &:focus
+    outline: none
+    opacity: 1
+
+
 #gap-sm
   margin-top: 20px
 
@@ -39,5 +53,7 @@ label
   margin-top: -15px
 .logo
   height: 100%
+#centre-txt
+  text-align: center
 
 
