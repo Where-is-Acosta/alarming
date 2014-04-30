@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby "2.1.1"
 
 gem 'rails', '4.0.3'
+gem 'thin'
 gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -13,7 +14,9 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'haml-rails'
 gem "rest_client"
 
-gem "oauth2"
+gem 'omniauth'
+gem 'omniauth-mixcloud', :git => 'git://github.com/morganric/omniauth-mixcloud.git'
+gem 'omniauth-soundcloud', '~> 1.0.0'
 
 gem 'rubocop', require: false
 

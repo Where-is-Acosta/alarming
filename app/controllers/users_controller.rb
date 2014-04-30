@@ -17,13 +17,12 @@ class UsersController < ApplicationController
   end
 
   def authorize_mixcloud
-    redirect_to "https://www.mixcloud.com/oauth/authorize?client_id=#{MIXCLOUD_CREDENTIALS[:client]}&redirect_uri=#{auth_mixcloud_callback_url}"
-    #client = OAuth2::Client.new(MIXCLOUD_CREDENTIALS[:client], MIXCLOUD_CREDENTIALS[:secret], :site => 'https://www.mixcloud.com')
-    #@redirect = client.auth_code.authorize_url(:redirect_uri => auth_mixcloud_callback_url)
+    redirect_to '/auth/mixcloud'
   end
 
   def mixcloud_callback
-    @response = get_auth(params[:code])
+    @response = request.env['omniauth.auth']
+    @you = @response['uid']
   end
 
   def create
