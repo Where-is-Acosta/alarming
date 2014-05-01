@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/morganric/omniauth-mixcloud.git
-  revision: bc4050641d026a5ce3abdd4c4c0449dcbc98f93d
+PATH
+  remote: vendor/gems/omniauth-mixcloud
   specs:
     omniauth-mixcloud (1.0.1)
       omniauth-oauth2 (~> 1.1.0)
@@ -191,6 +190,7 @@ DEPENDENCIES
   letter_opener
   omniauth
   omniauth-mixcloud!
+  omniauth-oauth2
   omniauth-soundcloud (~> 1.0.0)
   pg
   rails (= 4.0.3)

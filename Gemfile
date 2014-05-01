@@ -14,9 +14,11 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'haml-rails'
 gem "rest_client"
 
-gem 'omniauth'
-gem 'omniauth-mixcloud', :git => 'git://github.com/morganric/omniauth-mixcloud.git'
-gem 'omniauth-soundcloud', '~> 1.0.0'
+#gem 'omniauth'
+#gem 'omniauth-oauth2'
+#gem 'omniauth-mixcloud', :git => 'git://github.com/morganric/omniauth-mixcloud.git'
+#gem "omniauth-mixcloud", path: "vendor/gems/omniauth-mixcloud"
+#gem 'omniauth-soundcloud', '~> 1.0.0'
 
 gem 'rubocop', require: false
 
