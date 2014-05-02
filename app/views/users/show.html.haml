@@ -8,21 +8,27 @@
         Welcome back
         = current_user.name
   .row
+    .col-xs-6
+      - current_user.alarms.each do |alarm| 
+        .row
+          .col-xs-4
+            = alarm.name 
+          .col-xs-4
+            - if alarm.set?
+              Alarm Set
+            - else
+              Alarm not set
+          .col-xs-4
+            = alarm.time.strftime("at %l:%M%P")
+        %br
+    .col-xs-6
+      %h3
+        Your current get up sound
+      %iframe{ src: @sound} 
+  .row
     .col-xs-12
       = link_to 'New Alarm', new_alarm_path
       \|
       = link_to 'Edit', edit_user_path(current_user)
       \|
       = link_to 'log out', session_path, method: :destroy 
-  .row
-    .col-xs-6
-      - current_user.alarms.each do |alarm| 
-        .row
-          .col-xs-8
-            = alarm.name 
-          .col-xs-4
-            = alarm.time.strftime("at %l:%M%P")
-    .col-xs-6
-      %h3
-        Your current get up sound
-      %iframe{ src: @sound} 
