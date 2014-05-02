@@ -1,6 +1,6 @@
 class Alarm < ActiveRecord::Base
-#  belongs_to :user
-
+  belongs_to :user
+  # 
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
   before_validation :hour, :minute, :set_alarm, on: :create
   validates :name, :days, :time, presence: true
@@ -30,10 +30,10 @@ class Alarm < ActiveRecord::Base
   end
 
   def minute
-    self.minute = self.time.min
+    self.time.min
   end
 
   def hour
-    self.hour = self.time.hour
+    self.time.hour
   end
 end

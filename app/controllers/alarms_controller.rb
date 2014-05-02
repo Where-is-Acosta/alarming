@@ -1,14 +1,5 @@
 class AlarmsController < ApplicationController
-  before_action :require_user, :set_user, :set_alarm, only: %i[:show :edit :update :destroy :index]
-  # GET /alarms
-  # GET /alarms.json
-  def index
-    @alarms = Alarm.all
-    @next = Alarm.next.order("alarms.time asc").first(1)
-    @new = Alarm.new
-  end
-  # GET /alarms/1
-  # GET /alarms/1.json
+  before_action :require_user
   def show
     
   end
@@ -55,13 +46,7 @@ class AlarmsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def wake_up(time)
-    @time = time
-  end
   private 
-    def set_alarm
-      @alarm = Alarm.find(params[:id])
-    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def alarm_params
       params.require(:alarm).permit(:name, :user, :time, :snooze, days: [])
