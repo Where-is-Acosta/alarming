@@ -1,14 +1,28 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'log out', session_path, method: :destroy 
-\|
-= link_to 'Link Mixcloud', user_authorize_mixcloud_path(@user)
+.container
+  .row
+    .col-xs-12
+      %p#notice= notice
+  .row
+    .col-xs-12
+      %h1
+        Welcome back
+        = current_user.name
+  .row
+    .col-xs-12
+      = link_to 'New Alarm', new_alarm_path
+      \|
+      = link_to 'Edit', edit_user_path(current_user)
+      \|
+      = link_to 'log out', session_path, method: :destroy 
+  .row
+    .col-xs-6
+      - current_user.alarms.each do |alarm| 
+        .row
+          .col-xs-8
+            = alarm.name 
+          .col-xs-4
+            = alarm.time.strftime("at %l:%M%P")
+    .col-xs-6
+      %h3
+        Your current get up sound
+      %iframe{ src: @sound} 

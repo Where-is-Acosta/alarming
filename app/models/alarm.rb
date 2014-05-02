@@ -1,5 +1,6 @@
 class Alarm < ActiveRecord::Base
-  belongs_to :user
+#  belongs_to :user
+  belongs_to :user, class_name: 'User', foreign_key: 'user_id', inverse_of: :alarms
   # 
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
   before_validation :hour, :minute, :set_alarm, on: :create

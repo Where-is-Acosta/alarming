@@ -15,8 +15,9 @@ class AlarmsController < ApplicationController
   def create
     @alarm = Alarm.new(alarm_params)
     respond_to do |format|
+      @alarm.user = current_user
       if @alarm.save
-        format.html { redirect_to user_alarms_path, notice: 'Alarm was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Alarm was successfully created.' }
         format.json { render action: 'show', status: :created, location: @alarm }
       else
         format.html { render action: 'new' }
@@ -29,7 +30,7 @@ class AlarmsController < ApplicationController
   def update
     respond_to do |format|
       if @alarm.update(alarm_params)
-        format.html { redirect_to user_alarms_url, notice: 'Alarm was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Alarm was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -42,7 +43,7 @@ class AlarmsController < ApplicationController
   def destroy
     @alarm.destroy
     respond_to do |format|
-      format.html { redirect_to user_alarms_url }
+      format.html { redirect_to user_path(current_user) }
       format.json { head :no_content }
     end
   end

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @sound = get_the_popular_one
   end
 
   def edit
