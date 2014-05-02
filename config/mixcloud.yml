@@ -2,11 +2,14 @@ production:
   client: "pJZhwjWzYQdxeBjDqp"
   secret: "a2CPW9AEessrkpugDjBy8exKat36bDGC"
   site: "https://www.mixcloud.com"
+  hotlist: 'http://api.mixcloud.com/popular/hot/'
 development:
   client: "pJZhwjWzYQdxeBjDqp"
   secret: "a2CPW9AEessrkpugDjBy8exKat36bDGC"
   site: "https://www.mixcloud.com"
+  hotlist: 'http://api.mixcloud.com/popular/hot/'
 staging:
   client: "pJZhwjWzYQdxeBjDqp"
   secret: "a2CPW9AEessrkpugDjBy8exKat36bDGC"
   site: "https://www.mixcloud.com"
+  hotlist: 'http://api.mixcloud.com/popular/hot/'

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  #before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, only: [:show, :edit, :update, :destroy]
   
   def new
@@ -7,10 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    # Queries api for popular mix
     @sound = get_the_popular_one
   end
 
   def edit
+    @user = current_user
   end
 
   def create
