@@ -30,7 +30,7 @@ input[type=text], input[type=password]
 
 label
   margin: auto 0
-  height: 60px
+  height: 30px
 
 input[type=submit]
   width: 100%
@@ -52,9 +52,36 @@ input[type=submit]
   border-bottom: 1px solid #F5A623
   border-left: 1px solid #F5A623
   margin-top: -15px
+  -webkit-transition: border-color ease-in-out 0.15s
+  transition: border-color ease-in-out 0.35s
+  &.focus
+    border-color: #6BC4E7
+    -webkit-transition: border-color ease-in-out 0.15s
+    transition: border-color ease-in-out 0.35s
+
 .logo
   height: 100%
 #centre-txt
   text-align: center
 
 
+//Checkbox class, not quite working yet. The dirty motherfucker. 
+.checkBoxes
+  border-radius: 3px
+  border: 1px solid #EEEEEE
+  height: 40px
+  padding: 9px 30px 0 6px
+  cursor: pointer
+  background: #EEEEEE
+  -webkit-transition: border-color ease-in-out 0.15s
+  transition: border-color ease-in-out 0.15s
+  margin-top: 10px
+  label, input
+    cursor: pointer
+  &:hover
+    -webkit-transition: border-color ease-in-out 0.15s
+    transition: border-color ease-in-out 0.15s
+    border-color: #6BC4E7
+.hiddenBox
+  left: -30px
+  position: relative

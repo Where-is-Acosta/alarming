@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).on('focus', 'input', function(){
+  $(this).next().addClass('focus');
+});
+$(document).on('focusout', 'input', function(){
+  $(this).next().removeClass('focus');
+});

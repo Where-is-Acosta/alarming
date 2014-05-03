@@ -7,19 +7,22 @@
       %ul
         - @alarm.errors.full_messages.each do |msg|
           %li= msg
-  .col-sm-12.Time
-    .row
+  .row#gap-sm
+    .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
       .field
-        = f.label :name
-        = f.text_field :name
-  .col-sm-12.Time
-    .row
-      .field
-        = f.label :time
-        = f.time_select :time
-  .col-sm-12
-    .DayRow
-      = f.collection_check_boxes :days, list_days, :first, :second, :class => "button"
+        = f.text_field :name, placeholder: 'name', autofocus: true
+        .div#hackyborder
+  .row#gap-sm
+    .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
+      .field#centre-txt
+        %h2 at 
+        = f.time_select :time, placeholder: 'time'
+  .row#gap-sm
+    .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
+      = f.collection_check_boxes :days, list_days, :first, :second do |b|
+        = b.label(class: "checkBoxes"){ b.text } 
+        = b.check_box(class: "hiddenBox") 
+
   /
     <button class="button" id="monday">M</button>
     <button class="button" id="monday">T</button>
@@ -30,12 +33,12 @@
     <button class="button" id="monday">S</button>
     
     </div>
-  .col-sm-12.Time
-    .row  
+  .row
+    .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
       .field
         = f.label :snooze
         = f.check_box :snooze
-  .col-sm-12.Time
-    .row  
+  .row
+    .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
       .actions
         = f.submit 'Add', :class => 'button'
