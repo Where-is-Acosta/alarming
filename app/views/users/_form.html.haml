@@ -26,6 +26,13 @@
         = f.password_field :password_confirmation, placeholder: 'password confirmation'
       .div#hackyborder
   .row#gap-sm
+    .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1
+      .field
+        = f.text_field :client_address, placeholder: 'client address'
+      .div#hackyborder
+      %p.info
+        Enter the external URL or IP to the device running the Nudge client. Ensure access to port 5454.
+  .row#gap-sm
     .col-sm-6.col-sm-offset-3.col-xs-10.col-xs-offset-1  
       .actions
         = f.submit 'Save'
