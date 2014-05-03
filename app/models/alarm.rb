@@ -1,5 +1,5 @@
 class Alarm < ActiveRecord::Base
-#  belongs_to :user
+  belongs_to :user, class_name: 'User', foreign_key: 'user_id', inverse_of: :alarms
 
   DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
   before_validation :hour, :minute, :set_alarm, on: :create
@@ -7,7 +7,7 @@ class Alarm < ActiveRecord::Base
 
   # For alarming people
   scope :set, -> { where(set: true)}
-  scope :this_hour, -> { set.where(hour: Time.now.hour)}
+  scope :this_hour, -> { set.where(time:  Time.now.beginning_of_hour..Time.now.end_of_hour)}
 
   scope :next, ->  { set.where("hour <= ?", DateTime.now.hour) }
 
@@ -19,6 +19,14 @@ class Alarm < ActiveRecord::Base
     self[:days] = days.select { |day| DAYS.include?(day) }
   end
 
+  def minute
+    self.time.min
+  end
+
+  def hour
+    self.time.hour
+  end
+
   protected
 
   def set_alarm
@@ -27,13 +35,5 @@ class Alarm < ActiveRecord::Base
         self[:set] = true
       end
     end
-  end
-
-  def minute
-    self.minute = self.time.min
-  end
-
-  def hour
-    self.hour = self.time.hour
   end
 end

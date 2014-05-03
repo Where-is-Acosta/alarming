@@ -1,23 +1,17 @@
 class UsersController < ApplicationController
-  #before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, :require_user, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @users = User.all
-  end
-
+  before_action :require_user, only: [:show, :edit, :update, :destroy]
+  
   def new
     @user = User.new
   end
 
   def show
+    # Queries api for popular mix
+    @sound = get_the_popular_one
   end
 
   def edit
-  end
-
-  def authorize_mixcloud
-    AuthorizeMixcloudService::callback!(params[:code])
+    @user = current_user
   end
 
   def create

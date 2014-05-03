@@ -1,12 +1,12 @@
 Alarming::Application.routes.draw do
-
-  resources :users 
-  #resources :alarms, :only => [:index, :new, :show, :edit, :create, :update, :destroy, :wake_up]
-  #end
+  # Routes for users	
+  resources :users do
+  	get 'authorize_mixcloud'
+  end
+  # Routes for alarms
+  resources :alarms, except: %i[index]
+  # Routes for session handling
   resource :session, only: %i[create destroy]
-  
-  
-  get "auth/mixcloud/callback", to: "users#authorize_mixcloud"
-
+  # Routes to the landing page
   root to: "welcome#index"
 end
